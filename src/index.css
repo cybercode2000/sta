@@ -1,0 +1,52 @@
+body {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5)), url('Executive-Room9.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+
+.staff {
+    width: 60%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0px 1px 10px rgba(82, 82, 82, 0.15);
+    padding: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95)    
+}
+
+.staff h4 {
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.staff p {
+    font-size: 13px;
+}
+
+.staff label {
+    font-size: 14px;
+}
+
+.staff button {
+    background-color: sienna;
+    color: white;
+
+}
+
+form {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .staff {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
