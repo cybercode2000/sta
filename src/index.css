@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5)), url('Executive-Room9.png');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0, 0, 0, 0.4)), url('Executive-Room9.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -8,7 +8,7 @@ body {
 
 
 .staff {
-    width: 60%;
+    width: 55%;
     margin-top: 50px;
     margin-bottom: 50px;
     box-shadow: 0px 1px 10px rgba(82, 82, 82, 0.15);
@@ -29,7 +29,7 @@ body {
 }
 
 .staff label {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .staff button {
@@ -41,6 +41,10 @@ body {
 form {
     padding-left: 20px;
     padding-right: 20px;
+}
+
+#surname, #firstName, #lastName, #homeAddress, #phoneNumber{
+    padding: 20px;
 }
 
 

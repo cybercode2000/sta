@@ -3,27 +3,55 @@ import Logo from "./logo.png"
 import { toast, ToastContainer } from "react-toastify"
 
 class App extends Component {
-  state = {  } 
+  state = { 
+      file: ""
+   } 
 
   handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
 
-    // formData.append('surname', document.querySelector('#surname').value);
-    // formData.append('firstName', document.querySelector('#firstName').value);
-    // formData.append('lastName', document.querySelector('#lastName').value);
-    // formData.append('homeAddress', document.querySelector('#homeAddress').value);
-    // formData.append('phoneNumber', document.querySelector('#phoneNumber').value);
-    // formData.append('secondPhone', document.querySelector('#secondPhone').value);
-    // formData.append('sex', document.querySelector('#sex').value);
-    // formData.append('maritalStatus', document.querySelector('#maritalStatus').value);
-    // formData.append('qualification', document.querySelector('#qualification').value);
-    // formData.append('department', document.querySelector('#department').value);
-    // formData.append('branch', document.querySelector('#branch').value);
-    // formData.append('dob', document.querySelector('#dob').value);
+    let payload = {
+        surname: document.querySelector('#surname').value,
+        firstName: document.querySelector('#firstName').value,
+        lastName: document.querySelector('#lastName').value,
+        homeAddress: document.querySelector('#homeAddress').value,
+        phoneNumber: document.querySelector('#phoneNumber').value,
+        secondPhone: document.querySelector('#secondPhone').value,
+        sex: document.querySelector('#sex').value,
+        maritalStatus: document.querySelector('#maritalStatus').value,
+        qualification: document.querySelector('#qualification').value,
+        department: document.querySelector('#department').value,
+        branch: document.querySelector('#branch').value,
+        dob: document.querySelector('#dob').value,
+        emailAddress: document.querySelector('#emailAddress').value,
+        nin: document.querySelector('#nin').value,
+        NOK: document.querySelector('#NOK').value,
+        NOKAddress: document.querySelector('#NOKAddress').value,
+        relationship: document.querySelector('#relationship').value
+    }
 
-    toast.success('Information Submitted Successfully')
+    formData.append('surname', payload.surname);
+    formData.append('firstName', payload.firstName);
+    formData.append('lastName', payload.lastName);
+    formData.append('homeAddress', payload.homeAddress);
+    formData.append('phoneNumber', payload.phoneNumber);
+    formData.append('secondPhone', payload.secondPhone);
+    formData.append('sex', payload.sex);
+    formData.append('maritalStatus', payload.maritalStatus);
+    formData.append('qualification', payload.qualification);
+    formData.append('department', payload.department);
+    formData.append('branch', payload.branch);
+    formData.append('dob', payload.dob);
+    formData.append('emailAddress', payload.emailAddress);
+    formData.append('nin', payload.nin);
+    formData.append('NOK', payload.NOK);
+    formData.append('NOKAddress', payload.NOKAddress);
+    formData.append('relationship', payload.relationship);
+    formData.append('file', payload.file);
+
+    toast.success('Information Submitted Successfully');
   }
 
   render() { 
@@ -37,62 +65,62 @@ class App extends Component {
             <img style={{ height: '40px' }} alt="Logo" src={Logo} />
         </div>
             <h4 class="text-center font-weight-bold" style={{fontFamily: 'arial'}}>Staff Registration</h4>
-            <p style={{marginTop: '-8px'}} class="text-center mb-4">Please fill in your details below</p>
+            <p style={{marginTop: '0px'}} class="text-center mb-3">Please fill in your details below</p>
 
             <form onSubmit={this.handleSubmit}>
-            <div class="row ">
-                <div class="col-lg-6 mb-4 mt-2">
+            <div class="row">
+                <div class="col-lg-6 mb-3 mt-2">
                     <label for="">Surname</label>
-                    <input id='surname' class="form-control p-3" type="text" required/>
+                    <input id='surname' class="form-control" type="text" required/>
                 </div>
                 
-                <div class="col-lg-6 mb-4 mt-2">
+                <div class="col-lg-6 mb-3 mt-2">
                     <label for="">First Name</label>
                     <input id='firstName' class="form-control" type="text" required/>
                 </div>
                 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Last Name</label>
                     <input id='lastName' class="form-control" type="text" required/>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Home Address</label>
                     <input id='homeAddress' class="form-control" type="text" required/>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Phone Number</label>
                     <input id='phoneNumber' class="form-control" type="number" required/>
                 </div>
 
-                <div class="col-lg-6 mb-4">
-                    <label for="">Altnative Phone Number</label>
+                <div class="col-lg-6 mb-3">
+                    <label for="">Alternative Phone Number</label>
                     <input id='secondPhone' class="form-control" type="number" required/>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <div>Sex</div>
-                    <select id='sex' class="form-control nice-select" name="" required>
+                    <select id='sex' class="form-control" name="" required>
                         <option value="">Please Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label>Marital Status</label>
-                    <select class="form-control nice-select p-2" name="" id="maritalStatus" required>
+                    <select class="form-control p-2" id="maritalStatus" required>
                         <option value="">Please Select</option>
-                        <option value="">Single</option>
-                        <option value="">Married</option>
-                        <option value="">Divorce</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorce">Divorce</option>
                     </select>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label>Qualification</label>
-                    <select class="form-control nice-select p-2" name="" id="qualification" required>
+                    <select class="form-control p-2" name="" id="qualification" required>
                         <option value="">Please Select</option>
                         <option value="BSC">BSC</option>
                         <option value="MSC">MSC</option>
@@ -101,7 +129,7 @@ class App extends Component {
                     </select>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label>Department</label>
                     <select class="form-control nice-select p-2" name="" id="department" required>
                         <option value="">Please Select</option>
@@ -112,7 +140,7 @@ class App extends Component {
                     </select>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label>Branch</label>
                     <select class="form-control p-2" name="" id="branch" required>
                         <option value="">Please Select</option>
@@ -139,43 +167,43 @@ class App extends Component {
                     </select>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Date Of Birth</label>
                     <input id='dob' class="form-control p-2" type="date" required />
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Email Address</label>
                     <input id='emailAddress' class="form-control p-2" type="email" required />
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Passport</label>
                     <input id='passport' class="form-control p-2" type="file" required />
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">NIN</label>
                     <input id='nin' class="form-control p-2" type="number" required />
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Next Of Kin Name</label>
                     <input id='NOK' class="form-control p-2" type="text" required />
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">House Address Next Of Kin</label>
                     <input id='NOKAddress' class="form-control p-2" type="text" required />
                 </div>
 
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-3">
                     <label for="">Relationship</label>
                     <input id='relationship' class="form-control p-2" type="text" required />
                 </div>
 
                 <div class="col-12 mt-4 d-flex justify-content-center font-weight-bold">
-                    <button type='submit' class="btn">Submit</button>
+                    <button type='submit' class="btn btn-lg font-weight-bold">Submit</button>
                 </div>
             </div>
             </form>
