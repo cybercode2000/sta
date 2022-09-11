@@ -71,6 +71,7 @@ class App extends Component {
                 document.querySelector('#NOKphone').value = ""
                 document.querySelector('#relationship').value = ""
                 document.querySelector('#employement').value = ""
+                this.setState({ checkings: "" })
             }
             else {
                 toast.error(postData.data)
