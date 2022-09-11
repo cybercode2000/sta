@@ -130,8 +130,10 @@ class App extends Component {
                     <label>Qualification</label>
                     <select class="form-control p-2" name="" id="qualification" required>
                         <option value="">Please Select</option>
-                        <option value="BSC">BSC</option>
                         <option value="MSC">MSC</option>
+                        <option value="BSC">BSC</option>
+                        <option value="HND">HND</option>
+                        <option value="OND">OND</option>
                         <option value="NCE">NCE</option>
                         <option value="SSCE">SSCE</option>
                     </select>
@@ -148,6 +150,7 @@ class App extends Component {
                         <option value="waiter">WAITER</option>
                         <option value="cook">COOK</option>
                         <option value="laundry">LAUNDRY</option>
+                        <option value="MAINTENANCE">MAINTENANCE</option>
                         <option value="public area">PUBLIC AREA</option>
                         <option value="I.T">I.T</option>
                         <option value="logistics">LOGISTICS</option>
