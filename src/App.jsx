@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Logo from "./logo.png"
 import { toast, ToastContainer } from "react-toastify"
+import Webcam from "react-webcam";
+import Upload from "./compact-camera.png"
 
 class App extends Component {
   state = { 
-      file: ""
+      file: "",
+      checkings: "",
    } 
 
    handleImage = (e) => {
@@ -38,34 +41,86 @@ class App extends Component {
         relationship: document.querySelector('#relationship').value
     }
 
-    formData.append('surname', payload.surname);
-    formData.append('firstName', payload.firstName);
-    formData.append('lastName', payload.lastName);
-    formData.append('homeAddress', payload.homeAddress);
-    formData.append('phoneNumber', payload.phoneNumber);
-    formData.append('secondPhone', payload.secondPhone);
-    formData.append('sex', payload.sex);
-    formData.append('maritalStatus', payload.maritalStatus);
-    formData.append('qualification', payload.qualification);
-    formData.append('department', payload.department);
-    formData.append('branch', payload.branch);
-    formData.append('dob', payload.dob);
-    formData.append('emailAddress', payload.emailAddress);
-    formData.append('nin', payload.nin);
-    formData.append('NOK', payload.NOK);
-    formData.append('NOKAddress', payload.NOKAddress);
-    formData.append('relationship', payload.relationship);
-    formData.append('file', payload.file);
+    if(this.state.checkings === ""){
+        toast.error('Please Add your Passport');
+    }else {
+        formData.append('surname', payload.surname);
+        formData.append('firstName', payload.firstName);
+        formData.append('lastName', payload.lastName);
+        formData.append('homeAddress', payload.homeAddress);
+        formData.append('phoneNumber', payload.phoneNumber);
+        formData.append('secondPhone', payload.secondPhone);
+        formData.append('sex', payload.sex);
+        formData.append('maritalStatus', payload.maritalStatus);
+        formData.append('qualification', payload.qualification);
+        formData.append('department', payload.department);
+        formData.append('branch', payload.branch);
+        formData.append('dob', payload.dob);
+        formData.append('emailAddress', payload.emailAddress);
+        formData.append('nin', payload.nin);
+        formData.append('NOK', payload.NOK);
+        formData.append('NOKAddress', payload.NOKAddress);
+        formData.append('relationship', payload.relationship);
+        formData.append('file', this.state.checkings);
+    
+        console.log(formData)
+        // toast.success('Information Submitted Successfully');
+    }
 
     // const 
 
-    toast.success('Information Submitted Successfully');
   }
 
   render() { 
+
+    const videoConstraints = {
+  width: 100,
+  height: 100,
+  facingMode: "user"
+};
     return (
       <>
       <ToastContainer />
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Passport</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+         <Webcam
+    audio={false}
+    height={400}
+    screenshotFormat="image/jpeg"
+    width={"100%"}
+    videoConstraints={videoConstraints}
+  >
+    {({ getScreenshot }) => (
+        <div className='d-flex justify-content-center'>
+
+      <button className='btn text-white' data-dismiss="modal" style={{ background: 'sienna' }}
+        onClick={() => {
+            const imageSrc = getScreenshot();
+            console.log('here we go bros');
+            console.log(imageSrc);
+            this.setState({ checkings: imageSrc });
+        }}
+        >
+        Capture photo
+      </button>
+          </div>
+    )}
+  </Webcam>
+      </div>
+    </div>
+  </div>
+</div>
+
         <div class="col-lg-12  d-flex justify-content-center">
 
         <div class="staff">
@@ -76,13 +131,20 @@ class App extends Component {
             <p style={{marginTop: '0px'}} class="text-center mb-3">Please fill in your details below</p>
 
             <form onSubmit={this.handleSubmit}>
+
+                <div className="d-flex justify-content-center">
+                    <div className='p-2 text-center' style={{ cursor: 'pointer' }} data-toggle="modal" placeholder='Click To Add Passport' data-target="#exampleModal">
+                        <img style={{ height: '80px', padding: '10px', borderRadius: '10px', background: 'white' }} src={this.state.checkings === "" ? Upload : this.state.checkings} alt="" />
+                        <p style={{ fontSize: '17px' }}>Upload your image</p>
+                    </div>
+                </div>
             <div class="row">
-                <div class="col-lg-6 mb-3 mt-2">
+                <div class="col-lg-6 mb-3 mt-1">
                     <label for="">Surname</label>
                     <input id='surname' class="form-control" type="text" required/>
                 </div>
                 
-                <div class="col-lg-6 mb-3 mt-2">
+                <div class="col-lg-6 mb-3 mt-1">
                     <label for="">First Name</label>
                     <input id='firstName' class="form-control" type="text" required/>
                 </div>
@@ -200,11 +262,6 @@ class App extends Component {
                 </div>
 
                 <div class="col-lg-6 mb-3">
-                    <label for="">Passport</label>
-                    <input onChange={this.handleImage} accept="image/png, image/gif, image/jpeg" id='passport' class="form-control p-2" type="file" required />
-                </div>
-
-                <div class="col-lg-6 mb-3">
                     <label for="">NIN</label>
                     <input id='nin' class="form-control p-2" type="number" required />
                 </div>
@@ -235,7 +292,7 @@ class App extends Component {
                 </div>
 
                 <div class="col-12 mt-4 d-flex justify-content-center font-weight-bold">
-                    <button type='submit' class="btn btn-lg font-weight-bold">Submit</button>
+                    <button style={{ fontSize: '16px' }} type='submit' class="btn btn-sm p-2 font-weight-bold">Submit</button>
                 </div>
             </div>
             </form>
