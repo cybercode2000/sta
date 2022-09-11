@@ -7,6 +7,12 @@ class App extends Component {
       file: ""
    } 
 
+   handleImage = (e) => {
+        let file = e.target.files[0];
+        this.setState({ file: file });
+        console.log(file)
+    }
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -50,6 +56,8 @@ class App extends Component {
     formData.append('NOKAddress', payload.NOKAddress);
     formData.append('relationship', payload.relationship);
     formData.append('file', payload.file);
+
+    // const 
 
     toast.success('Information Submitted Successfully');
   }
@@ -133,10 +141,21 @@ class App extends Component {
                     <label>Department</label>
                     <select class="form-control nice-select p-2" name="" id="department" required>
                         <option value="">Please Select</option>
-                        <option value="BSC">BSC</option>
-                        <option value="MSC">MSC</option>
-                        <option value="NCE">NCE</option>
-                        <option value="SSCE">SSCE</option>
+                        <option value="Receptionist">RECEPTIONIST</option>
+                        <option value="porter">PORTER</option>
+                        <option value="housekeeper">HOUSEKEEPER</option>
+                        <option value="waitress">WAITRESS</option>
+                        <option value="waiter">WAITER</option>
+                        <option value="cook">COOK</option>
+                        <option value="laundry">LAUNDRY</option>
+                        <option value="public area">PUBLIC AREA</option>
+                        <option value="I.T">I.T</option>
+                        <option value="logistics">LOGISTICS</option>
+                        <option value="hr">H.R</option>
+                        <option value="fc & sp">FC & SP</option>
+                        <option value="f, d & e">F, D & E</option>
+                        <option value="wadd/c.s">WADD/C.S</option>
+                        <option value="property">PROPERTY</option>
                     </select>
                 </div>
 
@@ -179,7 +198,7 @@ class App extends Component {
 
                 <div class="col-lg-6 mb-3">
                     <label for="">Passport</label>
-                    <input id='passport' class="form-control p-2" type="file" required />
+                    <input onChange={this.handleImage} accept="image/png, image/gif, image/jpeg" id='passport' class="form-control p-2" type="file" required />
                 </div>
 
                 <div class="col-lg-6 mb-3">
@@ -194,6 +213,11 @@ class App extends Component {
 
                 <div class="col-lg-6 mb-3">
                     <label for="">House Address Next Of Kin</label>
+                    <input id='NOKAddress' class="form-control p-2" type="text" required />
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <label for="">Next Of Kin Phone Number</label>
                     <input id='NOKAddress' class="form-control p-2" type="text" required />
                 </div>
 
