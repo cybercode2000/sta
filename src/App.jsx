@@ -3,6 +3,7 @@ import Logo from "./logo.png"
 import { toast, ToastContainer } from "react-toastify"
 import Webcam from "react-webcam";
 import Upload from "./compact-camera.png"
+import axios from 'axios';
 
 class App extends Component {
   state = { 
@@ -16,10 +17,9 @@ class App extends Component {
         console.log(file)
     }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
 
     let payload = {
         surname: document.querySelector('#surname').value,
@@ -38,36 +38,48 @@ class App extends Component {
         nin: document.querySelector('#nin').value,
         NOK: document.querySelector('#NOK').value,
         NOKAddress: document.querySelector('#NOKAddress').value,
-        relationship: document.querySelector('#relationship').value
+        NOKphone: document.querySelector('#NOKphone').value,
+        relationship: document.querySelector('#relationship').value,
+        employement: document.querySelector('#employement').value,
+        file: this.state.checkings
     }
 
     if(this.state.checkings === ""){
         toast.error('Please Add your Passport');
     }else {
-        formData.append('surname', payload.surname);
-        formData.append('firstName', payload.firstName);
-        formData.append('lastName', payload.lastName);
-        formData.append('homeAddress', payload.homeAddress);
-        formData.append('phoneNumber', payload.phoneNumber);
-        formData.append('secondPhone', payload.secondPhone);
-        formData.append('sex', payload.sex);
-        formData.append('maritalStatus', payload.maritalStatus);
-        formData.append('qualification', payload.qualification);
-        formData.append('department', payload.department);
-        formData.append('branch', payload.branch);
-        formData.append('dob', payload.dob);
-        formData.append('emailAddress', payload.emailAddress);
-        formData.append('nin', payload.nin);
-        formData.append('NOK', payload.NOK);
-        formData.append('NOKAddress', payload.NOKAddress);
-        formData.append('relationship', payload.relationship);
-        formData.append('file', this.state.checkings);
-    
-        console.log(formData)
-        // toast.success('Information Submitted Successfully');
+        try {
+            const postData = await axios.post('https://preskenhotels.com/staff/staffregistration', payload);
+
+            if(postData.data === "successfully"){
+                toast.success('Information Submitted Successfully');
+                document.querySelector('#surname').value = ""
+                document.querySelector('#firstName').value = ""
+                document.querySelector('#lastName').value = ""
+                document.querySelector('#homeAddress').value = ""
+                document.querySelector('#phoneNumber').value = ""
+                document.querySelector('#secondPhone').value = ""
+                document.querySelector('#sex').value = ""
+                document.querySelector('#maritalStatus').value = ""
+                document.querySelector('#qualification').value = ""
+                document.querySelector('#department').value = ""
+                document.querySelector('#branch').value = ""
+                document.querySelector('#dob').value = ""
+                document.querySelector('#emailAddress').value = ""
+                document.querySelector('#nin').value = ""
+                document.querySelector('#NOK').value = ""
+                document.querySelector('#NOKAddress').value = ""
+                document.querySelector('#NOKphone').value = ""
+                document.querySelector('#relationship').value = ""
+                document.querySelector('#employement').value = ""
+            }
+            else {
+                toast.error(postData.data)
+            }
+        }catch(e){
+            console.log(e)
+        }
     }
 
-    // const 
 
   }
 
@@ -278,7 +290,7 @@ class App extends Component {
 
                 <div class="col-lg-6 mb-3">
                     <label for="">Next Of Kin Phone Number</label>
-                    <input id='NOKAddress' class="form-control p-2" type="text" required />
+                    <input id='NOKphone' class="form-control p-2" type="text" required />
                 </div>
 
                 <div class="col-lg-6 mb-3">
@@ -288,7 +300,7 @@ class App extends Component {
 
                 <div class="col-lg-6 mb-3">
                     <label for="">Year of Employement</label>
-                    <input id='employement' class="form-control p-2" type="text" required />
+                    <input id='employement' class="form-control p-2" type="year" required />
                 </div>
 
                 <div class="col-12 mt-4 d-flex justify-content-center font-weight-bold">
