@@ -229,6 +229,11 @@ class App extends Component {
                     <input id='relationship' class="form-control p-2" type="text" required />
                 </div>
 
+                <div class="col-lg-6 mb-3">
+                    <label for="">Year of Employement</label>
+                    <input id='employement' class="form-control p-2" type="text" required />
+                </div>
+
                 <div class="col-12 mt-4 d-flex justify-content-center font-weight-bold">
                     <button type='submit' class="btn btn-lg font-weight-bold">Submit</button>
                 </div>
