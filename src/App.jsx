@@ -174,12 +174,12 @@ class App extends Component {
 
                 <div class="col-lg-6 mb-3">
                     <label for="">Phone Number</label>
-                    <input id='phoneNumber' minLength={11} maxLength={11} class="form-control" type="number" required/>
+                    <input id='phoneNumber' class="form-control" type="number" required/>
                 </div>
 
                 <div class="col-lg-6 mb-3">
                     <label for="">Alternative Phone Number</label>
-                    <input id='secondPhone' minLength={11} maxLength={11} class="form-control" type="number" required/>
+                    <input id='secondPhone' class="form-control" type="number" required/>
                 </div>
 
                 <div class="col-lg-6 mb-3">
