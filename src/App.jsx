@@ -236,6 +236,12 @@ class App extends Component {
                         <option value="f, d & e">F, D & E</option>
                         <option value="wadd/c.s">WADD/C.S</option>
                         <option value="property">PROPERTY</option>
+                        <option value="AUDIT">AUDIT</option>
+                        <option value="KITCHEN ASSISTANT">KITCHEN ASSISTANT</option>
+                        <option value="POOL GUARD">POOL GUARD</option>
+                        <option value="BBQ">BBQ</option>
+                        <option value="PROCUREMENT">PROCUREMENT</option>
+                        <option value="DRIVERS">DRIVERS</option>
                     </select>
                 </div>
 
