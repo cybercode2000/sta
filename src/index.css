@@ -51,5 +51,7 @@ form {
     .staff {
         width: 100%;
         margin-top: 30px;
+        padding: 10px;
+        padding-top: 30px;
     }
 }
