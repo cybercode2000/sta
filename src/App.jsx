@@ -205,6 +205,7 @@ class App extends Component {
                     <label>Qualification</label>
                     <select class="form-control p-2" name="" id="qualification" required>
                         <option value="">Please Select</option>
+                        <option value="PHD">PHD</option>
                         <option value="MSC">MSC</option>
                         <option value="BSC">BSC</option>
                         <option value="HND">HND</option>
@@ -219,6 +220,7 @@ class App extends Component {
                     <select class="form-control nice-select p-2" name="" id="department" required>
                         <option value="">Please Select</option>
                         <option value="Receptionist">RECEPTIONIST</option>
+                        <option value="Manager">MANAGER</option>
                         <option value="porter">PORTER</option>
                         <option value="housekeeper">HOUSEKEEPER</option>
                         <option value="waitress">WAITRESS</option>
