@@ -41,6 +41,9 @@ class App extends Component {
         NOKphone: document.querySelector('#NOKphone').value,
         relationship: document.querySelector('#relationship').value,
         employement: document.querySelector('#employement').value,
+        bankName: document.querySelector('#bankName').value,
+        accountName: document.querySelector('#accountName').value,
+        AccountNumber: document.querySelector('#AccountNumber').value,
         file: this.state.checkings
     }
 
@@ -71,6 +74,9 @@ class App extends Component {
                 document.querySelector('#NOKphone').value = ""
                 document.querySelector('#relationship').value = ""
                 document.querySelector('#employement').value = ""
+                document.querySelector('#bankName').value = ""
+                document.querySelector('#accountName').value = ""
+                document.querySelector('#AccountNumber').value = ""
                 this.setState({ checkings: "" })
             }
             else {
@@ -257,7 +263,6 @@ class App extends Component {
                         <option value="Presken Hotel @ G.R.A, Ikeja">Presken Hotel @ G.R.A, Ikeja</option>
                         <option value="Presken Hotel @ International Airport Road">Presken Hotel @ International Airport Road</option>
                         <option value="Presken Hotels @ Maryland Ikeja">Presken Hotels @ Maryland Ikeja</option>
-                        <option value="PRESKEN HOTELS OPEBI LAGOS">PRESKEN HOTELS OPEBI LAGOS</option>
                         <option value="Presken Hotel (Reliance)">Presken Hotel (Reliance)</option>
                         <option value="Presken Hotel @ Abuja">Presken Hotel @ Abuja</option>
                         <option value="Presken Hotel @Oniru">Presken Hotel @Oniru</option>
@@ -269,6 +274,8 @@ class App extends Component {
                         <option value="Presken Luxury Apartment">Presken Luxury Apartment</option>
                         <option value="PRESKEN HOTELS @ FAJODD-4">PRESKEN HOTELS @ FAJODD-4</option>
                         <option value="Presken White House">Presken White House</option>
+                        <option value="Presken Waters">Presken Waters</option>
+                        <option value="Presken Ikoyi">Presken Ikoyi</option>
                     </select>
                 </div>
 
@@ -310,6 +317,21 @@ class App extends Component {
                 <div class="col-lg-6 mb-3">
                     <label for="">Year of Employement</label>
                     <input id='employement' class="form-control p-2" type="year" required />
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <label for="">Account Number</label>
+                    <input id='AccountNumber' class="form-control p-2" type="text" required />
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <label for="">Account Name</label>
+                    <input id='accountName' class="form-control p-2" type="text" required />
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <label for="">Bank Name</label>
+                    <input id='bankName' class="form-control p-2" type="text" required />
                 </div>
 
                 <div class="col-12 mt-4 d-flex justify-content-center font-weight-bold">
